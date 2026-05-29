@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Médica</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=20260522-1">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">Clínica Médica</div>
+        <p class="muted">Gestión clínica local con SQLite</p>
+      </div>
+      <nav class="nav" id="navTabs"></nav>
+      <div class="sidebar-footer">
+        <button class="ghost" id="btnBackup" hidden>Respaldo</button>
+        <button class="ghost" id="btnLogout" hidden>Salir</button>
+      </div>
+      <button id="btnToggleSidebar" class="sidebar-toggle" type="button" aria-label="Mostrar u ocultar panel lateral">&lt;&lt;</button>
+    </aside>
+
+    <main class="content">
+      <section id="loginView" class="panel login-panel">
+        <div class="card login-card">
+          <h1>Acceso</h1>
+          <p class="muted">Ingresa con el usuario inicial: admin / Admin123!</p>
+          <form id="loginForm" class="form-grid">
+            <label>
+              Usuario
+              <input name="username" type="text" required autocomplete="username">
+            </label>
+            <label>
+              Contraseña
+              <input name="password" type="password" required autocomplete="current-password">
+            </label>
+            <button type="submit">Entrar</button>
+          </form>
+          <div id="loginMsg" class="msg"></div>
+        </div>
+      </section>
+
+      <section id="appView" class="app-grid" hidden>
+        <header id="dashboardHero" class="hero card">
+          <div>
+            <h1>Panel clínico</h1>
+            <p class="muted">Usuarios, pacientes, historial, citas, tratamientos, recetas, búsquedas y auditoría.</p>
+          </div>
+          <div class="stats" id="statsBox"></div>
+        </header>
+
+        <section id="dashboardSearchCard" class="card">
+          <div class="section-head">
+            <h2>Buscar</h2>
+            <input id="searchInput" type="search" placeholder="Buscar paciente, cita o diagnóstico">
+          </div>
+          <div id="searchResults" class="stack"></div>
+        </section>
+
+        <section class="card" id="moduleCard"></section>
+      </section>
+    </main>
+  </div>
+
+  <template id="listTemplate">
+    <div class="table-wrap">
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </template>
+
+  <script src="app.js?v=20260522-1"></script>
+</body>
+</html>
